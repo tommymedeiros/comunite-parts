@@ -1,0 +1,16 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# O TRABALHO - DESIGN GRAFICO
+    %main{:id => "content", :class => "trabalho", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %header
+        %h1 Design Gr&aacute;fico
+      %p No contexto da UniSerpro, o designer gráfico é responsável pelo "look and feel" de nossos cursos virtuais. Após inteirar-se dos objetivos educacionais de determinado curso, ele busca em seu repertório conceitual e técnico soluções visuais para interface e recursos gráficos. O DG é o responsável pela experiência sensorial do usuário, tornando mais prazeroso o processo de aprendizado, trazendo aos cursos leveza e interatividade e conduzindo criativamente o aluno pelo conteúdo.
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>

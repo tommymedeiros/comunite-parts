@@ -1,0 +1,23 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# Estrutura da pagina A UNITE- PESSOAS
+    %main{:id => "content", :class => "pessoas", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %header
+        %h1 Pessoas
+      %p Sabemos que o caráter multidisciplinar é o grande diferencial do EAD sobre o ensino presencial. A equipe da UNITE é composta por profissionais de áreas de formação e perfis dististos; compartilhando, porém, a competência e o interesse pelo ensino a distância.
+      %p São pedagogos, matemáticos, letrólogos, cientistas, designers, artistas. Uma rede de pessoas com habilidades diferentes que atuam de forma colaborativa para gerar conhecimento, transformando a instituição e a sociedade brasileira.
+      -# Estrutura da galeria de A UNITE - PESSOAS
+      <?php include("componentes/_galeria.php") ?>
+      -# Estrutura da modal de A UNITE- PESSOAS
+      <?php include("componentes/_modal.php") ?>
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>
+
+-# hash 389230830

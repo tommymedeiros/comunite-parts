@@ -1,0 +1,78 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# O TRABALHO - GESTAO DE ESCOLAS
+    %main{:id => "content", :class => "resultados", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %header
+        %h1 Cases
+      %p Muitos dos cursos desenvolvidos pela UNITE transformam-se em cases de sucesso, seja pelo objetivo educacional alcançado, pela inovação nas soluções encontradas ou pelo reconhecimento por parte dos alunos (ou uma mistura de todos esses fatores).
+      %section{:class => "case cipa"}
+        %header
+          %h2 Prevenção, Segurança e Promoção de Saúde no Trabalho
+        %div
+          %p O curso CIPA - Segurança e Promoção de Saúde no Trabalho - tinha como objetivo o nostrum, molestias! Esse, consequuntur. Quod a dicta minima doloremque fugit dignissimos suscipit voluptate vero facere? Voluptas necessitatibus expedita facilis, dignissimos pariatur ut. Praesentium qui necessitatibus expedita facilis, dignissimos pariatur repudiandae, labore porro numquam placeat.
+          %footer
+            %p
+              %strong
+                Cliente: 
+              Serpro
+              %br/
+              %strong
+                Público-alvo: 
+              empregados do SERPRO
+              %br/
+              %strong
+                Ano de produção: 
+              2013
+            %a{:href => "#!"}
+              %img{:src => "imagens/ver_online.svg"}
+      %section{:class => "case governo-eletronico"}
+        %header
+          %h2 Governo Eletrônico, Internet e Cidadania
+        %div
+          -# 1 paragrafo
+          <?php include("componentes/_1_paragrafo.php") ?>
+          %footer
+            %p
+              %strong
+                Cliente: 
+              Serpro
+              %br/
+              %strong
+                Público-alvo: 
+              geral
+              %br/
+              %strong
+                Ano de produção: 
+              2014
+            %a{:href => "#!"}
+              %img{:src => "imagens/ver_online.svg"}
+      %section{:class => "case capacitacao-tutores"}
+        %header
+          %h2 Capacitação de Tutores
+        %div
+          -# 1 paragrafo
+          <?php include("componentes/_1_paragrafo.php") ?>
+          %footer
+            %p
+              %strong
+                Cliente: 
+              Serpro
+              %br/
+              %strong
+                Público-alvo: 
+              geral
+              %br/
+              %strong
+                Ano de produção: 
+              2010
+            %a{:href => "#!"}
+              %img{:src => "imagens/ver_online.svg"}
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>

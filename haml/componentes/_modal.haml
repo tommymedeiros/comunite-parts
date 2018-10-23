@@ -1,0 +1,15 @@
+%section{:id => "modal", :class => "semantic-content", :tabindex => "-1", :role => "dialog", :"aria-labelledby" => "modal-label", :"aria-hidden" => "true"}
+  %div{:class => "modal-inner"}
+    %header{:id => "modal-label"}
+      %h2 Fulano de Tal
+      %p Fun&ccedil;&atilde;o
+      %div
+        %img{:src => "imagens/logotipo.svg"}
+        / %img{:"data-src" => "holder.js/110x110/#ccc:#fff"}
+    %div{:class => "modal-content"}
+      -# 1 paragrafo
+      <?php include("_1_paragrafo.php") ?>
+    %footer
+      %a{:href => "#!"}
+        %p Ver artigos de Fulano de Tal
+  %a{:href => "#!", :class => "modal-close", :title => "Fechar esta janela", :"data-close" => "Close", :"data-dismiss" => "modal"} ×

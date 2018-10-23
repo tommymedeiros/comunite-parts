@@ -1,0 +1,25 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# Estrutura de listagem do blog
+    %main{:id => "content", :class => "blog", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %article
+        %header
+          %h1
+            Mestrado profissional
+            %strong “Educação e Docência 2015”
+          -# Estrutura especifica do blog - Informacoes do artigo
+          <?php include("componentes/_informacoes.php") ?>
+        -# 2 paragrafos
+        <?php include("componentes/_2_paragrafos.php") ?>
+      %a{:href => "artigo.php"} Continuar lendo
+      -# Estrutura especifica de links para outros artigos
+      <?php include("componentes/_links_artigos.php") ?>
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>

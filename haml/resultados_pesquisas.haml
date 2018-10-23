@@ -1,0 +1,17 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# O TRABALHO - GESTAO DE ESCOLAS
+    %main{:id => "content", :class => "resultados", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %header
+        %h1 Pesquisas
+      -# Scripts
+      <?php include("componentes/_3_paragrafos.php") ?>
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>

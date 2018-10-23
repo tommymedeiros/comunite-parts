@@ -1,0 +1,16 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# O TRABALHO - DESIGN INSTRUCIONAL
+    %main{:id => "content", :class => "trabalho", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %header
+        %h1 Design Instrucional
+      %p O designer instrucional é um criador de experiências de aprendizagem. Como um contador de histórias, esse profissional torna o aprendizado mais efetivo e significativo para o aluno. Ele é um facilitador: toma como base um conteúdo educacional, analisa o que se objetiva com esse conteúdo e qual a melhor abordagem junto ao público que se pretende alcançar.
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>

@@ -1,0 +1,130 @@
+// Janela modal com as informacoes das pessoas em A UNITE - PESSOAS
+#modal
+  background-color: rgba(Black, .7)
+  height: 0
+  left: 0
+  bottom: 0
+  opacity: 0
+  overflow: hidden
+  position: fixed
+  right: 0
+  top: 0
+  +transform(translate(0, 100%)) // Esconde a janela
+  +transform(translate3d(0, 100%, 0)) // Esconde a janela
+  width: 0
+  z-index: 1
+  // A exibe quando requisitada
+  &:target
+    +transform(translate(0, 0))
+    width: auto
+    height: auto
+    opacity: 1
+  // Area do conteudo
+  .modal-inner
+    background-color: darken($cinza-escuro, 7%)
+    box-shadow: 0 0 6px Black
+    font:
+      family: $sans-serif
+      weight: 300
+    height: 480px
+    left: 50%
+    margin:
+      left: - $largura-modal / 2 // Metade da largura // Ajuda a alinhar horizontalmente
+      top: - $altura-modal / 2// Metade da altura // Ajuda a alinhar verticalmente
+    position: absolute
+    text-align: center
+    top: 50%
+    width: $largura-modal
+    z-index: 2
+    #modal-label
+      h2
+        color: $azul
+        font:
+          family: $serif
+          size: $paragrafo * 1.2
+        margin-bottom: 0
+      p
+        color: $cinza-claro
+        font-family: $sans-serif-italic
+        margin: 0 ($espaco * 3) ($espaco * 2)
+      div
+        +border-radius(50%)
+        height: 110px
+        margin: auto
+        overflow: hidden
+        width: 110px
+        img
+          margin-left: -50%
+          width: 200%
+    #modal-label,
+    .modal-content,
+    footer
+      p
+        color: $cinza-claro
+        font-size: $informacao * 1.1
+    .modal-content
+      position: relative
+      p
+        margin: ($espaco * 2) ($espaco * 3)
+      > *
+        max-width: 100%
+    footer
+      background-color: darken($azul, 15%)
+      bottom: 0
+      position: absolute
+      text-align: right
+      width: 100%
+      a
+        display: block
+        &::before
+          background-color: darken($azul, 5%)
+          content: ""
+          display: block
+          height: 50px
+          left: 0
+          position: absolute
+          top: 0
+          +transition(width .5s)
+          width: 0
+          z-index: 1
+        &:hover
+          &::before
+            width: 100%
+        p
+          font-family: $sans-serif-italic
+          line-height: 50px
+          margin: 0
+          position: relative
+          z-index: 2
+          &::after
+            content: url("../imagens/detalhes.svg")
+            @extend %posicao-icone
+            margin: 0 $espaco
+  // Botao que fecha a janela
+  .modal-close
+    display: block
+    height: 1px
+    // Prevent close element to appear
+    clip: rect(0 0 0 0)
+    overflow: hidden
+    &::after,
+    &::before
+      position: absolute
+    // O 'x' em si
+    &::after
+      color: lighten($cinza-escuro, 15%)
+      content: "\00d7"
+      left: 50%
+      margin:
+        left: $largura-modal / 2 - 15px
+        top: - $altura-modal / 2
+      top: 50%
+      z-index: 3
+    // Overlay entre a janela e o conteudo
+    &::before
+      bottom: 0
+      content: ''
+      left: 0
+      position: absolute
+      right: 0
+      top: 0

@@ -1,0 +1,520 @@
+// Importa as configuracoes de base
+@import base
+
+*,
+*::after,
+*::before
+  +box-sizing(border-box)
+
+html,
+body
+  height: 100%
+
+body
+  background-color: $cinza-escuro
+  font-family: $sans-serif
+  -webkit-font-smoothing: subpixel-antialiased
+
+// Barra lateral
+#sidebar
+  position: fixed
+  max-width: $largura-sidebar * 3
+  min-height: 100%
+  min-width: $largura-sidebar
+  z-index: 1
+  a
+    color: $cinza-claro
+    display: block
+    text:
+      decoration: none
+      transform: uppercase
+  header
+    display: block
+    margin-top: -($altura-logotipo * .875) // .875 = 100% - 12.5% da altura (?)
+    position: absolute
+    top: 25%
+    width: 100%
+    z-index: 4 // Para sobrepor a mascara do ul de nav:nth-of-type(1)
+    a#logotipo // Logotipo da Comunidade Colaborativa UNITE
+      h1
+        background: url("../imagens/logotipo.svg") center no-repeat
+        height: $altura-logotipo
+        +hide-text
+        margin: 0
+      // @import logotipo
+  nav.navegacao
+    height: 100%
+    position: absolute // position: relative
+    width: $largura-sidebar
+    a
+      color: $cinza-claro
+      display: block
+      padding: 0 $espaco
+      width: $largura-sidebar
+    ul
+      background-color: $cinza
+      list-style: none
+      margin: 0
+      padding: 0
+      position: absolute
+      top: 50% // Ajuda a centralizar verticalmente
+      li
+        width: $largura-sidebar
+        a
+          line-height: $altura-item
+          &:hover
+            background-color: rgba($cinza-claro, .05)
+            color: White
+    &.primeiro-nivel
+      background-color: $cinza
+      box-shadow: $sombra-interna // Sombra sobre a area abaixo dos links
+      left: 0
+      z-index: 3
+      ul
+        &::before // Fundo cinza claro sob o logotipo da Comunidade Colaborativa UNITE
+          @extend %mascara-nav-top
+          background-color: $cinza-claro
+          box-shadow: $sombra-interna-mascara
+        margin-top: -($altura-item * 3) / 2 // Ajuda a centralizar verticalmente
+        li
+          a
+            box-shadow: $sombra-interna
+            &::before
+              @extend %posicao-icone
+              margin-right: $espaco
+          &:nth-child(1)
+            a
+              &::before
+                content: url("../imagens/unite.svg")
+                height: 44px
+                width: 41px
+              background-color: $amarelo
+          &:nth-child(2)
+            a
+              &::before
+                content: url("../imagens/trabalho.svg")
+              background-color: $marrom
+          &:nth-child(3)
+            a
+              &::before
+                content: url("../imagens/resultados.svg")
+              background-color: $azul
+    &.segundo-nivel,
+    &.terceiro-nivel
+      ul
+        li
+          border:
+            color: darken($cinza, 5%)
+            style: solid
+            width: 0
+          &:not(:last-child)
+            border-bottom-width: 1px
+        &::before
+          @extend %mascara-nav-top
+        &::after
+          @extend %mascara-nav-bottom
+    &.segundo-nivel // Navegacao de segundo nivel
+      background-color: $cinza-escuro
+      z-index: 2
+      ul
+        li
+          a
+            border-left:
+              style: solid
+              width: 15px
+      ul.unite // Sub-menu de A UNITE
+        margin-top: -($altura-item * 2) / 2 - $altura-item / 2 // Ajuda a centralizar e alinhar verticalmente
+        li
+          a
+            border-left-color: $amarelo
+      ul.trabalho // Sub-menu de O TRABALHO
+        margin-top: -($altura-item * 3) / 2 // Ajuda a centralizar e alinhar verticalmente
+        li
+          a
+            border-left-color: $marrom
+      ul.resultados // Sub-menu de RESULTADOS
+        margin-top: -($altura-item * 2) / 2 - $altura-item / 2 // Ajuda a centralizar e alinhar verticalmente
+        li
+          a
+            border-left-color: $azul
+    &.terceiro-nivel // Navegacao de terceiro nivel
+      background-color: $cinza-escuro
+      // left: $largura-sidebar * 2
+      z-index: 1
+      ul.trabalho.pessoas // Sub-sub-menu de O TRABALHO - PESSOAS
+        margin-top: -($altura-item * 3) / 2 // Ajuda a centralizar verticalmente
+        li
+          a
+            border-left: 15px solid $marrom
+  #acesso
+    background-color: $cinza-escuro
+    bottom: 0
+    box-shadow: $sombra-interna
+    display: block
+    position: absolute
+    text-align: right
+    width: $largura-sidebar
+    z-index: 4
+    a
+      font-size: $paragrafo * .7
+      line-height: $altura-item * .7
+      text:
+        align: right
+        transform: uppercase
+      &::after
+        @extend %posicao-icone
+        content: url("../imagens/login.svg")
+        margin:
+          left: $espaco * 2
+          right: $espaco * 2
+
+// Conteudo principal
+#content
+  background-color: $cinza-claro
+  box-shadow: $sombra-externa
+  +clearfix
+  margin-left: $largura-sidebar
+  max-width: $largura-content
+  min-height: 100%
+  padding-bottom: $espaco
+  position: relative
+  a
+    text-decoration: none
+  h1
+    font-family: $serif
+  h2
+    color: $cinza
+  &,
+  article
+    >
+      img
+        max-width: 90% // ~835px no tamanho maximo
+      p
+        max-width: 75% // ~725px no tamanho maximo
+  p
+    color: $cinza
+    font-size: $paragrafo
+    margin:
+      left: auto
+      right: auto
+  // Pesquisa
+  .sb-search
+    position: absolute
+    width: 0%
+    min-width: $pesquisa
+    height: $pesquisa
+    right: 0
+    top: 0
+    overflow: hidden
+    -webkit-transition: width 0.3s
+    -moz-transition: width 0.3s
+    transition: width 0.3s
+    -webkit-backface-visibility: hidden
+  .sb-search-input
+    position: absolute
+    top: 0
+    right: 0
+    border: none
+    outline: none
+    background: White
+    width: 50%
+    line-height: $pesquisa
+    margin: 0
+    z-index: 10
+    padding: 0 0 0 10px
+    font-family: inherit
+    font-size: 20px
+    color: #2c3e50
+    &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder
+      color: #efb480
+  .sb-icon-search
+    width: $pesquisa
+    height: $pesquisa
+    display: block
+    position: absolute
+    right: 0
+    top: 0
+    padding: 0
+    margin: 0
+    line-height: $pesquisa
+    text-align: center
+    cursor: pointer
+  .sb-search-submit
+    width: $pesquisa
+    height: $pesquisa
+    display: block
+    position: absolute
+    right: 0
+    top: 0
+    padding: 0
+    margin: 0
+    line-height: $pesquisa
+    text-align: center
+    cursor: pointer
+    background: White
+    // IE needs this
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+    // IE 8
+    filter: alpha(opacity = 0)
+    // IE 5-7
+    opacity: 0
+    color: transparent
+    border: none
+    outline: none
+    z-index: -1
+  .sb-icon-search
+    color: lighten($cinza-escuro, 20%)
+    background: $cinza-escuro
+    z-index: 90
+    font-size: 22px
+    font-family: "Ico Moon"
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    &:before
+      content: "\e000"
+      line-height: 45px
+  // Open state
+  .sb-search.sb-search-open, .no-js .sb-search
+    width: 100%
+  .sb-search.sb-search-open .sb-icon-search, .no-js .sb-search .sb-icon-search
+    background: lighten($cinza-escuro, 10%)
+    color: #fff
+    z-index: 11
+  .sb-search.sb-search-open .sb-search-submit, .no-js .sb-search .sb-search-submit
+    z-index: 90
+  &.blog
+    padding:
+      bottom: 150px // Reserva espaco para o aside
+      top: 50px
+    article
+      header
+        text-align: center
+        h1
+          color: $azul
+          font:
+            size: $titulo-blog
+            weight: 300
+          margin: $espaco auto
+          max-width: 90% // ~835px no tamanho maximo
+          strong
+            font:
+              family: $serif-semibold
+              weight: 500
+        img
+          +border-radius(50%)
+          width: 50px
+          height: 50px
+        p
+          font-size: $informacao
+          a
+            color: $azul
+            &:hover
+              text-decoration: underline
+      img
+        display: block
+        margin: auto
+    > a
+      background-color: $azul
+      color: $cinza-claro
+      display: block
+      line-height: $altura-item / 2
+      margin: 0 0 ($espaco * 4) 12.5%
+      text-align: center
+      width: $largura-sidebar * .7
+    aside
+      bottom: 0
+      max-width: $largura-content
+      position: absolute
+      width: 100%
+      div
+        background-color: darken($cinza-claro, 5%)
+        display: inline-block
+        height: 150px // $altura-item * 1.4 // 112px //
+        border:
+          color: $marrom
+          style: solid
+        width: 50%
+        img
+          max-height: 100%
+        p
+          font-weight: 300
+          a
+            color: $azul
+            &:hover
+              text-decoration: underline
+          &:nth-of-type(1)
+            color: $marrom
+            font:
+              family: $serif
+              size: $informacao * 1.2
+          &:nth-of-type(2)
+            font-size: $informacao
+        &:nth-of-type(1)
+          border-width: 1px 1px 0 0
+          img
+            float: left
+            margin-right: 30px
+        &:nth-of-type(2)
+          border-width: 1px 0 0 0
+          img
+            float: right
+            margin-left: 30px
+          p
+            text-align: right
+  &.estrutura,
+  &.pessoas,
+  &.trabalho,
+  &.resultados,
+  &.unite
+    header
+      padding: ($titulo-secoes / 5) 0 0
+      h1
+        font-size: $titulo-secoes
+        margin: ($titulo-secoes / 5) 0 0
+  &.estrutura,
+  &.pessoas,
+  &.unite
+    background-color: $amarelo
+    header
+      h1
+        color: $azul
+  &.pessoas
+    padding-bottom: 0
+    // Galeria
+    @import galeria
+    // Modal
+    @import modal
+    .claudinei
+      background: url("../imagens/temp/claudinei.png") no-repeat
+      width: 100%
+      height: 735px
+      margin: ($espaco * 2) 0 0 ($espaco * 3)
+  &.resultados
+    background-color: $azul
+    padding-bottom: 0
+    header
+      h1
+        color: $amarelo
+    p
+      color: lighten($azul, 35%)
+      &::selection
+        background-color: $amarelo
+        color: $cinza-claro
+    .case
+      box-shadow: 0 -2px 4px rgba(Black, .2)
+      margin-top: $espaco * 4
+      header
+        cursor: pointer
+        height: 175px
+        position: relative
+        &::before
+          background-color: rgba($cinza-escuro, .3)
+          content: ""
+          display: block
+          height: 175px // 50px
+          left: 0
+          position: absolute
+          bottom: 0
+          +transition(width .5s)
+          width: 0
+        &:hover
+          &::before
+            width: 100%
+        h2
+          background-color: rgba(darken($cinza-escuro, 7%), .9)
+          bottom: 0
+          color: $cinza-claro
+          font:
+            family: $serif-semibold
+            weight: 500
+          line-height: 50px
+          margin: 0
+          padding-left: 40px
+          position: absolute
+          width: 100%
+      p
+        color: $cinza-claro
+        font-size: $informacao * 1.1
+        padding: $espaco ($espaco * 5)
+      div
+        background-color: darken($cinza-escuro, 7%)
+        +clearfix
+        > p
+          width: 60%
+        > p,
+        footer
+          float: left
+        footer
+          width: 40%
+          p
+            margin-bottom: $espaco * 3
+            text-align: right
+            strong
+              font:
+                family: $sans-serif-bold
+                weight: 700
+          a
+            display: block
+            float: right
+            line-height: 0
+      &.cipa
+        background: url("../imagens/resultados/banner_cipa.jpg") no-repeat
+      &.governo-eletronico
+        background: url("../imagens/resultados/banner_governo_eletronico.jpg") no-repeat
+      &.capacitacao-tutores
+        background: url("../imagens/resultados/banner_capacitacao_tutores.jpg") no-repeat
+  &.trabalho
+    background-color: $marrom
+    padding-bottom: 292px
+    header
+      h1
+        color: $amarelo
+      h2
+        color: darken($cinza-escuro, 2%)
+    p
+      color: darken($cinza-escuro, 2%)
+    aside
+      bottom: 0
+      max-width: $largura-content
+      position: absolute
+      text-align: center // Centraliza as div inline-block
+      width: 100%
+      div
+        display: inline-block
+        height: 292px
+        border:
+          color: $azul
+          style: solid
+        position: relative
+        max-width: $largura-content / 3
+        img
+          max-height: 100%
+          max-width: 100% // Sobrepoe a configuracao geral do #content
+          opacity: .5
+        p
+          background-color: darken($marrom, 10%)
+          bottom: 0
+          font-weight: 300
+          line-height: 70px
+          margin: 0
+          max-width: 100% // Sobrepoe a configuracao geral do #content
+          position: absolute
+          text:
+            align: center
+            transform: uppercase
+          width: 100%
+          a
+            color: $amarelo
+            &:hover
+              text-decoration: underline
+        &:nth-of-type(1)
+          border-width: 1px 1px 0 0
+        &:nth-of-type(2)
+          border-width: 1px 1px 0 0
+        &:nth-of-type(3)
+          border-width: 1px 0 0 0
+
+// hash 721232291

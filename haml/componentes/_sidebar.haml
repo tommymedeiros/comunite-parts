@@ -1,0 +1,50 @@
+%div{:id => "sidebar"}
+  -# Area do logotipo da Comunidade Colaborativa UNITE
+  %header
+    %a{:id => "logotipo", :href => "index.php"}
+      %h1 Comunidade Colaborativa UNITE
+      / <?php include("imagens/logotipo.svg") ?>
+  -# Navegacao principal - comum a todas as paginas
+  %nav{:class => "navegacao primeiro-nivel"}
+    %ul{:class => "menu geral"}
+      // A UNITE
+      %li{:class => "item"}
+        %a{:href => "unite.php"} A Unite
+      // O TRABALHO
+      %li{:class => "item trabalho"}
+        %a{:href => "trabalho.php"} O trabalho
+      // RESULTADOS
+      %li{:class => "item resultados"}
+        %a{:href => "resultados.php"} Resultados
+  %nav{:class => "navegacao segundo-nivel"}
+    // Sub-menu de A UNITE
+    %ul{:class => "menu unite"}
+      %li{:class => "item"}
+        %a{:href => "unite_pessoas.php"} Pessoas
+      %li{:class => "item"}
+        %a{:href => "unite_estrutura.php"} Estrutura
+    // Sub-menu de O TRABALHO
+    %ul{:class => "menu trabalho"}
+      %li{:class => "item"}
+        %a{:href => "trabalho_dg.php"} Design gr&aacute;fico
+      %li{:class => "item"}
+        %a{:href => "trabalho_di.php"} Design instrucional
+      %li{:class => "item"}
+        %a{:href => "trabalho_gestao.php"} Gest&atilde;o de escolas
+    // Sub-menu de RESULTADOS
+    %ul{:class => "menu resultados"}
+      %li{:class => "item"}
+        %a{:href => "resultados_cases.php"} Cases
+      %li{:class => "item"}
+        %a{:href => "resultados_pesquisas.php"} Pesquisas
+      %li{:class => "item"}
+        %a{:href => "resultados_relatorios.php"} Relatórios
+  %nav{:class => "navegacao terceiro-nivel"}
+    // Sub-sub-menu de ...
+    %ul{:class => "menu"}
+      %li{:class => "item"}
+        %a{:href => "#!"} Item
+  -# Area de login/logout
+  %footer{:id => "acesso"}
+    %a{:href => "#!", :alt => "Acessar a Comunidade Colaborativa UNITE"}
+      Login

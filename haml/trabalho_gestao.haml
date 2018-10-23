@@ -1,0 +1,16 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# O TRABALHO - GESTAO DE ESCOLAS
+    %main{:id => "content", :class => "trabalho", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %header
+        %h1 Gestão de Escolas
+      %p A gestão de escolas e cursos cuida da implementação, manutenção e administração da educação a distância no Serpro. Os gestores de cursos e escolas são os responsáveis pela relação aluno-empresa, levando em conta os aspectos administrativos e comportamentais no ambiente de EAD, assegurando-se de que tutores e alunos encontrem harmonia nos estudos que pretendem efetuar.
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>

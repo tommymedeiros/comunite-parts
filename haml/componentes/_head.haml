@@ -1,0 +1,18 @@
+%head
+  %meta{:charset => "utf-8"}/
+  %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}/
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"}/
+  -# Titulo a ser acrescido do assunto de cada pagina
+  %title Comunidade Colaborativa UNITE
+  / %link{:rel => "shortcut icon", :href => "favicon.ico"}
+  -# Normalize.css / http://necolas.github.io/normalize.css/
+  %link{:rel => "stylesheet", :href => "estilos/normalize.css"}/
+  -# Estilos proprios minificados
+  %link{:rel => "stylesheet", :href => "estilos/estilos.min.css"}/
+  %script{:src => "scripts/modernizr.min.js"}
+  / %script{:src => "scripts/modernizr.custom.js"}
+  / [if lt IE 9]
+    -# Polyfills HTML5 Shiv + Respond.js minificados para adicionar
+    -# suporte a elementos HTML5 e queries nos IE inferiores ao 9
+    -# AVISO: Respond.js nao funciona em visualizacao via file://
+    %script{:src => "scripts/polyfills.min.js"}

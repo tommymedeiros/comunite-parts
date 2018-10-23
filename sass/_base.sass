@@ -1,0 +1,92 @@
+// Importa o Bourbon
+// http://bourbon.io/
+@import bourbon/bourbon
+
+// Define as cores
+$amarelo: #f0aa2f
+$azul: #3693a1
+$cinza: #494949
+$cinza-claro: #ededed
+$cinza-escuro: #353535
+$marrom: #9d8b79
+
+// Incorpora as fontes
+// @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700)
++font-face("Open Sans Regular", "../fontes/OpenSans-Regular-webfont")
++font-face("Open Sans Italic", "../fontes/OpenSans-Italic-webfont")
++font-face("Open Sans Bold", "../fontes/OpenSans-Bold-webfont")
++font-face("Open Sans Bold Italic", "../fontes/OpenSans-BoldItalic-webfont")
++font-face("Museo 300", "../fontes/exljbris_-_museo-300-webfont")
++font-face("Museo 500", "../fontes/exljbris_-_museo-500-webfont")
++font-face("Museo 500", "../fontes/exljbris_-_museo-700-webfont")
++font-face("Ico Moon", "../fontes/icomoon")
+
+// Define as fontes
+$sans-serif:  "Open Sans Regular", sans-serif
+$sans-serif-italic: "Open Sans Italic", sans-serif
+$sans-serif-bold: "Open Sans Bold", sans-serif
+$sans-serif-bolditalic: "Open Sans Bold Italic", sans-serif
+$serif: "Museo 300", serif
+$serif-bold: "Museo 700", serif
+$serif-semibold: "Museo 500", serif
+
+// Define o tamanho das fontes
+$informacao: .8125rem // 13px
+$paragrafo: 1.25rem // 20px
+$titulo-blog: 2.1875rem // 35px
+$titulo-secoes: 5.625rem // 90px
+
+// Determina o equivalente em px nos IE7 e IE8
+=font-size($size)
+  font-size: $size + rem
+  .ie7 &,
+  .ie8 &
+    font-size: ($size * 10) + px
+
+// Define os itens da navegacao
+$altura-item: 80px
+$espaco: 0.67em
+$largura-content: 950px
+$largura-sidebar: 250px
+
+// Pseudo-elementos do #sidebar
+%mascara-nav
+  content: ""
+  display: block
+  height: $altura-item * 5
+  width: $largura-sidebar
+%mascara-nav-bottom
+  @extend %mascara-nav
+  margin-bottom: - $altura-item * 5
+%mascara-nav-top
+  @extend %mascara-nav
+  margin-top: - $altura-item * 5
+
+// Itens com icones
+// Configura o posicionamento dos icones na navegacao e acesso
+%posicao-icone
+  display: inline-block
+  line-height: normal
+  vertical-align: middle
+
+// Sombras
+$sombra-externa: 4px 0 6px rgba(Black, .2)
+$sombra-interna: inset -8px 0 12px -8px rgba(Black, .5)
+$sombra-interna-mascara: inset -6px 0 20px -10px rgba(Black, .2)
+
+// Modal
+$altura-modal: 480px
+$largura-modal: 360px
+
+// Pesquisa
+$pesquisa: 44px
+
+// Logotipo
+$altura-logotipo: 160px
+
+// Simplicifa o uso dos mixins de border-radius do Bourbon
+=border-radius($radius)
+  +border-bottom-radius($radius)
+  +border-left-radius($radius)
+  +border-right-radius($radius)
+  +border-top-radius($radius)

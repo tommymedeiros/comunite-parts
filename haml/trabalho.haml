@@ -1,0 +1,33 @@
+!!! 5
+%html{:lang => "pt-BR"}
+  -# <head>
+  <?php include("componentes/_head.php") ?>
+  %body
+    -# Barra lateral
+    <?php include("componentes/_sidebar.php") ?>
+    -# O TRABALHO
+    %main{:id => "content", :class => "trabalho", :role => "main"}
+      // Pesquisa
+      <?php include("componentes/_pesquisa.php") ?>
+      %header
+        %h1 Trabalho
+      -# Estrutura generica - 1 paragrafo
+      <?php include("componentes/_1_paragrafo.php") ?>
+      -# Estrutura generica - 2 paragrafos
+      <?php include("componentes/_2_paragrafos.php") ?>
+      -# Links para os perfis profissionais
+      %aside
+        %div
+          %img{:src => "imagens/trabalho/_trabalho_nav_dg.jpg"}
+          %p
+            %a{:href => "trabalho_dg.php"} Design Gráfico
+        %div
+          %img{:src => "imagens/trabalho/_trabalho_nav_di.jpg"}
+          %p
+            %a{:href => "trabalho_di.php"} Design Instrucional
+        %div
+          %img{:src => "imagens/trabalho/_trabalho_nav_gestao.jpg"}
+          %p
+            %a{:href => "trabalho_gestao.php"} Gestão de Escolas
+    -# Scripts
+    <?php include("componentes/_scripts.php") ?>
